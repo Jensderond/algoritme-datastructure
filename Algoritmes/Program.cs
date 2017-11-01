@@ -44,14 +44,20 @@ namespace Algoritmes
             
         }
 
-        public static decimal BinairyToDecimal(string binary, decimal resultDecimal)
+        public static int BinToDec(string binary)
         {
-            if (num > 0)
-            {
-                BinairyToDecimal(num / lala, lala);
-                System.out.print(num % lala);
-            }
+            /*
+             *          SAME IMPLEMENTATION BUT MAYBE BETTER TO READ
 
+                        int len = binary.Length;
+                        if (len == 0) return 0;
+                        string now = binary.Substring(0,1);
+                        string later = binary.Substring(1);
+                        return int.Parse(now) * (int)Math.Pow(2, len - 1) + BinToDec(later);
+            */
+            if (binary.Length == 0) return 0;
+
+            return int.Parse(binary.Substring(0, 1)) * (int)Math.Pow(2, binary.Length - 1) + BinToDec(binary.Substring(1));
         }
 
 
@@ -61,15 +67,7 @@ namespace Algoritmes
 
 
 
-
-
-
-
-
-
-
-
-
+        
 
 
         public static List<int> BucketSort(int[] x)
